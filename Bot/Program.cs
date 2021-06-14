@@ -11,7 +11,6 @@
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Configuration;
-    using System;
     using System.IO;
     using System.Threading.Tasks;
 
@@ -22,17 +21,14 @@
             var builder = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((context, config) =>
                 {
-                    var env = context.HostingEnvironment;
-
+                    
                     config.Sources.Clear();
                     config
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
                         .AddEnvironmentVariables()
                         .Build();
-
-                    Console.WriteLine(env.EnvironmentName);
                 })
                 .ConfigureLogging(context =>
                 {
