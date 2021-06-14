@@ -5,13 +5,6 @@
 		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(Configuration)' == '' Or '$(Configuration)' == 'Debug'">
-		<EnvironmentName>Development</EnvironmentName>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)' != '' AND '$(Configuration)' != 'Debug' ">
-		<EnvironmentName>Production</EnvironmentName>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<Compile Remove="Models\**" />
 		<EmbeddedResource Remove="Models\**" />

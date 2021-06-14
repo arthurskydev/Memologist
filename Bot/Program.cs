@@ -14,7 +14,6 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Microsoft.Extensions.Hosting.Internal;
 
     internal class Program
     {
@@ -25,8 +24,6 @@
                 {
                     var env = context.HostingEnvironment;
 
-                    Console.WriteLine(env.EnvironmentName);
-
                     config.Sources.Clear();
                     config
                         .SetBasePath(Directory.GetCurrentDirectory())
@@ -35,6 +32,7 @@
                         .AddEnvironmentVariables()
                         .Build();
 
+                    Console.WriteLine(env.EnvironmentName);
                 })
                 .ConfigureLogging(context =>
                 {
