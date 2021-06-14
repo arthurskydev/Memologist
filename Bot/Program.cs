@@ -14,27 +14,32 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Hosting.Internal;
 
     internal class Program
     {
         private static async Task Main(string[] args)
         {
             var builder = Host.CreateDefaultBuilder()
-                .ConfigureAppConfiguration(x =>
+                .ConfigureAppConfiguration((context, config) =>
                 {
-                    var configuration = new ConfigurationBuilder()
+                    var env = context.HostingEnvironment;
+
+                    Console.WriteLine(env.EnvironmentName);
+
+                    config.Sources.Clear();
+                    config
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                         .AddEnvironmentVariables()
                         .Build();
 
-                    x.AddConfiguration(configuration);
                 })
-                .ConfigureLogging(x =>
+                .ConfigureLogging(context =>
                 {
-                    x.AddConfiguration();
-                    x.AddConsole();
+                    context.AddConfiguration();
+                    context.AddConsole();
                 })
                 .ConfigureDiscordHost<DiscordSocketClient>((context, config) =>
                 {
