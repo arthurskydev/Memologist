@@ -3,6 +3,9 @@
     using Bot.Services.StringProcService;
     using Discord;
 
+    /// <summary>
+    /// Builds a red embed with the error title.
+    /// </summary>
     internal class ErrorEmbedBuilder : EmbedBuilder
     {
         private readonly IStringProcService _stringProcessor;

@@ -30,7 +30,7 @@
         public async Task InfoAsnyc(SocketGuildUser user = null)
         {
             await Context.Channel.TriggerTypingAsync();
-            user = user ?? this.Context.User as SocketGuildUser;
+            user = user ?? Context.User as SocketGuildUser;
 
             var builder = new DefaultEmbedBuilder()
                 .WithTitle($"{_stringProcessor["whois"]} {user.Username}#{user.Discriminator}?")
