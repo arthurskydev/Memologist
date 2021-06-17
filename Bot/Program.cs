@@ -1,8 +1,8 @@
 ﻿namespace Bot
 {
+    using Bot.Common;
+    using Bot.Services.EventHandlers;
     using Bot.Services.StringProcService;
-    using Bot.Utils;
-    using Bot.EventHandlers;
     using Discord;
     using Discord.Addons.Hosting;
     using Discord.WebSocket;
@@ -48,7 +48,7 @@
                 })
                 .UseCommandService((context, config) =>
                 {
-                    config.CaseSensitiveCommands = true;
+                    config.CaseSensitiveCommands = false;
                     config.LogLevel = LogSeverity.Debug;
                     config.DefaultRunMode = Discord.Commands.RunMode.Async;
                 })

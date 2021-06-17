@@ -1,13 +1,12 @@
-﻿namespace Bot.EventHandlers
+﻿namespace Bot.Services.EventHandlers
 {
+    using Bot.Common;
     using Bot.Services.StringProcService;
-    using Bot.Utils;
     using Discord;
     using Discord.Addons.Hosting;
     using Discord.Commands;
     using Discord.WebSocket;
     using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     using System;
     using System.Threading;

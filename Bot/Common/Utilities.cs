@@ -1,7 +1,5 @@
-﻿namespace Bot.Utils
+﻿namespace Bot.Common
 {
-    using System;
-
     /// <summary>
     /// Utilities that multiple commands might use.
     /// </summary>

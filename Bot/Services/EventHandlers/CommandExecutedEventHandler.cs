@@ -1,5 +1,6 @@
-﻿namespace Bot.EventHandlers
+﻿namespace Bot.Services.EventHandlers
 {
+    using Bot.Common.EmbedBuilders;
     using Bot.Services.StringProcService;
     using Discord;
     using Discord.Addons.Hosting;
@@ -42,7 +43,12 @@
                 return;
             }
 
-            await commandContext.Channel.SendMessageAsync($"{_stringProcessor["commanderror"]} \n{result.ErrorReason}.");
+            var builder = new ErrorEmbedBuilder(_stringProcessor);
+            builder
+                .WithDescription(result.ErrorReason);
+            var embed = builder.Build();
+
+            await commandContext.Channel.SendMessageAsync(embed: embed);
 
             if (result.Error == CommandError.UnknownCommand)
             {
