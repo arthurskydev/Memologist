@@ -2,6 +2,7 @@
 {
     using Bot.Common;
     using Bot.Services.EventHandlers;
+    using Bot.Services.RedditAPIService;
     using Bot.Services.StringProcService;
     using Discord;
     using Discord.Addons.Hosting;
@@ -58,6 +59,7 @@
                         .AddHostedService<CommandExecutedEventHandler>()
                         .AddHostedService<MessageRecievedEventHandler>()
                         .AddTransient<Utilities>()
+                        .AddTransient<IRedditAPIService, RedditAPIService>()
                         .AddSingleton<IStringProcService, StringProcService>();
                 })
                 .UseConsoleLifetime();

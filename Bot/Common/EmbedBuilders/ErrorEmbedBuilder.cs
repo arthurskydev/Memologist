@@ -1,12 +1,12 @@
-﻿namespace Bot.Common.EmbedBuilders
-{
-    using Bot.Services.StringProcService;
-    using Discord;
+﻿using Bot.Services.StringProcService;
+using Discord;
 
+namespace Bot.Common.EmbedBuilders
+{
     /// <summary>
     /// Builds a red embed with the error title.
     /// </summary>
-    internal class ErrorEmbedBuilder : EmbedBuilder
+    public class ErrorEmbedBuilder : EmbedBuilder
     {
         private readonly IStringProcService _stringProcessor;
 

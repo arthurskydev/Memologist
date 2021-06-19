@@ -3,7 +3,7 @@
     /// <summary>
     /// Utilities that multiple commands might use.
     /// </summary>
-    internal class Utilities
+    public class Utilities
     {
         public bool IsAllCaps(string input)
         {

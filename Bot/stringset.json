@@ -8,5 +8,6 @@
   "createdat": "Created at",
   "joinedat": "Joined at",
   "pingdmanswer": ":)",
-  "pinganswer":  "Pong!"
+  "pinganswer": "Pong!",
+  "nothingwasfoundreddit": "Nothing was found. Maybe the subreddit doesn't exist or is not accessible."
 }

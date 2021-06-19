@@ -1,11 +1,11 @@
-﻿namespace Bot.Common.EmbedBuilders
-{
-    using Discord;
+﻿using Discord;
 
+namespace Bot.Common.EmbedBuilders
+{
     /// <summary>
     /// Builds a basic blue embed with timestamp.
     /// </summary>
-    class DefaultEmbedBuilder : EmbedBuilder
+    public class DefaultEmbedBuilder : EmbedBuilder
     {
         public DefaultEmbedBuilder()
         {
