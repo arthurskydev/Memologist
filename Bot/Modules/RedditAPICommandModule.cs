@@ -40,6 +40,34 @@ namespace Bot.Modules
 
         }
 
+        [Command("reddit")]
+        [Alias("rget")]
+        [Name("Reddit")]
+        [Summary("Gets a meme from a subreddit with specified arguments.")]
+        public async Task RedditAsync(string subreddit, ResultMethod method = ResultMethod.Random, int number = 1, TopOf topOf = TopOf.Day)
+        {
+            await Context.Channel.TriggerTypingAsync();
+
+            RedditPostModel post;
+            try
+            {
+                post = await _redditAPI.GetRedditPostAsync(subreddit, method, number, topOf);
+            }
+            catch (Exception ex)
+            {
+                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"]);
+                _logger.LogTrace(ex.Message);
+                return;
+            }
+
+            var builder = new EmbedBuilder()
+              .WithImageUrl(post.data.url);
+            var embed = builder.Build();
+            //TODO: Build Embed builder that can handle gifs and video.
+
+            await ReplyAsync(embed: embed);
+        }
+
         [Command("meme")]
         [Alias("m", "memes")]
         [Name("Meme")]
@@ -52,10 +80,6 @@ namespace Bot.Modules
             try
             {
                 post = await _redditAPI.GetRedditPostAsync(subreddit, ResultMethod.Random);
-                if (post?.kind != "t3")
-                {
-                    throw new Exception(message: "Post abnormal.");
-                }
             }
             catch (Exception ex)
             {
@@ -73,7 +97,7 @@ namespace Bot.Modules
 
         [Command("freshmeme")]
         [Alias("fm")]
-        [Name("Fresh Memes")]
+        [Name("Fresh Meme")]
         [Summary("Gives a random meme from \"the top of today\" memes of the meme subreddit.")]
         public async Task FreshMemeAsync()
         {
@@ -83,10 +107,6 @@ namespace Bot.Modules
             try
             {
                 post = await _redditAPI.GetRedditPostAsync(subreddit, ResultMethod.Top, _random.Next(1, 100), TopOf.Day);
-                if (post?.kind != "t3")
-                {
-                    throw new Exception(message: "Post abnormal.");
-                }
             }
             catch (Exception ex)
             {
