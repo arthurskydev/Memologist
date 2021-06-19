@@ -1,6 +1,5 @@
 ﻿namespace Bot.Models
 {
-
     public class RedditPostModel
     {
         public string kind { get; set; }

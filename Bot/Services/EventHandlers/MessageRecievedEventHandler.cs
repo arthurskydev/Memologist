@@ -1,17 +1,17 @@
-﻿namespace Bot.Services.EventHandlers
-{
-    using Bot.Common;
-    using Bot.Services.StringProcService;
-    using Discord;
-    using Discord.Addons.Hosting;
-    using Discord.Commands;
-    using Discord.WebSocket;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.Logging;
-    using System;
-    using System.Threading;
-    using System.Threading.Tasks;
+﻿using Bot.Common;
+using Bot.Services.StringProcService;
+using Discord;
+using Discord.Addons.Hosting;
+using Discord.Commands;
+using Discord.WebSocket;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
+namespace Bot.Services.EventHandlers
+{
     internal class MessageRecievedEventHandler : InitializedService
     {
         private readonly IServiceProvider _provider;

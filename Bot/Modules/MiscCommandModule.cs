@@ -1,10 +1,10 @@
-﻿namespace Bot.Modules
-{
-    using System.Threading.Tasks;
-    using Bot.Services.StringProcService;
-    using Discord;
-    using Discord.Commands;
+﻿using System.Threading.Tasks;
+using Bot.Services.StringProcService;
+using Discord;
+using Discord.Commands;
 
+namespace Bot.Modules
+{
     /// <summary>
     /// Commands that aren't useful, memes or only for testing purposes.
     /// </summary>

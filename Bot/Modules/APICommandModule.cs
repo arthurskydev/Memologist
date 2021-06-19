@@ -46,7 +46,7 @@ namespace Bot.Modules
             try
             {
                 post = await _redditAPI.GetRedditPostAsync(subreddit, ResultMethod.Random);
-                if (post == null || post?.kind != "t3")
+                if (post?.kind != "t3")
                 {
                     throw new Exception(message: "Post abnormal.");
                 }

@@ -1,13 +1,12 @@
-﻿namespace Bot.Modules
-{
-    using System.Threading.Tasks;
-    using Bot.Common.EmbedBuilders;
-    using Bot.Services.StringProcService;
-    using Discord;
-    using Discord.Commands;
-    using Discord.WebSocket;
-    using Microsoft.Extensions.Configuration;
+﻿using Bot.Common.EmbedBuilders;
+using Bot.Services.StringProcService;
+using Discord.Commands;
+using Discord.WebSocket;
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
+namespace Bot.Modules
+{
     /// <summary>
     /// General useful commands that everyone can use.
     /// </summary>

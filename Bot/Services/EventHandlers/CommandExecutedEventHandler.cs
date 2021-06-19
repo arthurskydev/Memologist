@@ -1,16 +1,16 @@
-﻿namespace Bot.Services.EventHandlers
-{
-    using Bot.Common.EmbedBuilders;
-    using Bot.Services.StringProcService;
-    using Discord;
-    using Discord.Addons.Hosting;
-    using Discord.Commands;
-    using Microsoft.Extensions.Logging;
-    using System;
-    using System.Reflection;
-    using System.Threading;
-    using System.Threading.Tasks;
+﻿using Bot.Common.EmbedBuilders;
+using Bot.Services.StringProcService;
+using Discord;
+using Discord.Addons.Hosting;
+using Discord.Commands;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
+namespace Bot.Services.EventHandlers
+{
     internal class CommandExecutedEventHandler : InitializedService
     {
         private readonly ILogger _logger;
