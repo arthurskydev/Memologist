@@ -1,2 +1,2 @@
 # Memologist
-A discord bot that explains memes
+An anwesome multi-purose Discord bot, written in C# with Discord.Net
