@@ -16,7 +16,8 @@ namespace Bot.Services.RedditAPIService
         Day,
         Week,
         Month,
-        Year
+        Year,
+        All
     }
 
     public interface IRedditAPIService

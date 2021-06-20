@@ -9,7 +9,7 @@ namespace Bot.Common.EmbedBuilders
     {
         public DefaultEmbedBuilder()
         {
-            this.WithColor(Discord.Color.Blue)
+            WithColor(Discord.Color.Blue)
                 .WithCurrentTimestamp();
         }
     }

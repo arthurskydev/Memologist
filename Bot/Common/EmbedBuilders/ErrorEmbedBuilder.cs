@@ -13,8 +13,8 @@ namespace Bot.Common.EmbedBuilders
         public ErrorEmbedBuilder(IStringProcService stringProcService)
         {
             _stringProcessor = stringProcService;
-            this.WithColor(Discord.Color.Red)
-                .WithTitle(_stringProcessor["commanderror"]);
+            WithColor(Discord.Color.Red)
+               .WithTitle(_stringProcessor["commanderror"]);
         }
     }
 }

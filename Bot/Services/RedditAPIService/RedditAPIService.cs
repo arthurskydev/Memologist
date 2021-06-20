@@ -1,4 +1,5 @@
 ﻿using Bot.Models;
+using Bot.Services.StringProcService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -9,8 +10,20 @@ namespace Bot.Services.RedditAPIService
 {
     public class RedditAPIService : IRedditAPIService
     {
+        private readonly IStringProcService _stringProcessor;
+
+        public RedditAPIService(IStringProcService stringProcessor)
+        {
+            _stringProcessor = stringProcessor;
+        }
+
         public async Task<RedditPostModel> GetRedditPostAsync(string subReddit, ResultMethod method, int number, TopOf topOf)
         {
+            if (number > 100)
+            {
+                throw new Exception(message: _stringProcessor["numbertoohighreddit"]) ;
+            }
+
             var client = new HttpClient();
             string result = await client.GetStringAsync($"https://reddit.com/r/{subReddit}/{method.ToString().ToLower()}.json?limit={number}&t={topOf.ToString().ToLower()}");
 
@@ -28,7 +41,7 @@ namespace Bot.Services.RedditAPIService
 
             if (redditListing == null || redditListing?.kind != "Listing" || number > redditListing.data?.children.Count)
             {
-                throw new Exception(message: "Error while calling API.");
+                throw new Exception(message: _stringProcessor["errorcllingapi"]);
             }
             else
             {

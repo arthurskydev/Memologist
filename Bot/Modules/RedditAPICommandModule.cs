@@ -1,4 +1,5 @@
-﻿using Bot.Models;
+﻿using Bot.Common.EmbedBuilders;
+using Bot.Models;
 using Bot.Services.RedditAPIService;
 using Bot.Services.StringProcService;
 using Discord;
@@ -55,15 +56,16 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"]);
+                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] +
+                    "\n" +
+                    ex.Message);
+
                 _logger.LogTrace(ex.Message);
                 return;
             }
 
-            var builder = new EmbedBuilder()
-              .WithImageUrl(post.data.url);
+            var builder = new RedditPostEmbedBuilder(post, _stringProcessor, true, true);
             var embed = builder.Build();
-            //TODO: Build Embed builder that can handle gifs and video.
 
             await ReplyAsync(embed: embed);
         }
@@ -83,13 +85,15 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"]);
+                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] +
+                    "\n" +
+                    ex.Message);
+
                 _logger.LogTrace(ex.Message);
                 return;
             }
 
-            var builder = new EmbedBuilder()
-                .WithImageUrl(post.data.url);
+            var builder = new RedditPostEmbedBuilder(post, _stringProcessor);
             var embed = builder.Build();
 
             await ReplyAsync(embed: embed);
@@ -110,15 +114,16 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"]);
+                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] + 
+                    "\n" + 
+                    ex.Message);
+
                 _logger.LogTrace(ex.Message);
                 return;
             }
 
-            var builder = new EmbedBuilder()
-                .WithImageUrl(post.data.url);
+            var builder = new RedditPostEmbedBuilder(post, _stringProcessor);
             var embed = builder.Build();
-            //TODO: Build Embed builder that can handle gifs and video.
 
             await ReplyAsync(embed: embed);
         }
