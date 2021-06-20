@@ -10,10 +10,15 @@
   "pingdmanswer": ":)",
   "pinganswer": "Pong!",
   "nothingwasfoundreddit": "**Nothing was found. Maybe the subreddit doesn't exist or is not accessible:**",
-  "redditnotanimage": "This post is not an image. Click the link above to view it in the browser.",
+  "redditnotanimage": "This post is not an image (GIF). Click the link above to view it in the browser.",
   "scorehidden": "The score was hidden by author.",
   "speechbubbleemoji": "🗨",
   "arrowupemoji": "⬆",
   "numbertoohighreddit": "The number you chose is too high (max: 100).",
-  "errorcllingapi" : "Error occured, whilest calling API."
+  "errorcllingapi": "Error occured while calling API.",
+  "embederror": "Error while building embed.",
+  "moderationpurgereply": "messages were deleted by:",
+  "willdeleteshortly": "This message will be deleted shortly.",
+  "moderationkicked": "kicked a user.",
+  "moderationuserwaskicked": "was removed from the server for:"
 }

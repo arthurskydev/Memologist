@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
 using System.IO;
 using System.Threading.Tasks;
+using Bot.Services.DiscordLoggerService;
 
 namespace Bot
 {
@@ -59,6 +60,7 @@ namespace Bot
                         .AddHostedService<CommandExecutedEventHandler>()
                         .AddHostedService<MessageRecievedEventHandler>()
                         .AddTransient<Utilities>()
+                        .AddTransient<IDiscordLoggerService, DiscordLoggerService>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()
                         .AddSingleton<IStringProcService, StringProcService>();
                 })

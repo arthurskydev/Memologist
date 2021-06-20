@@ -8,7 +8,8 @@ namespace Bot.Services.RedditAPIService
         Random,
         Top,
         New,
-        Hot
+        Hot,
+        Rising
     }
 
     public enum TopOf

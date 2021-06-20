@@ -74,6 +74,7 @@ namespace Bot.Services.EventHandlers
             }
 
             var context = new SocketCommandContext(_client, message);
+
             await _commandService.ExecuteAsync(context, argPos, _provider);
         }
     }

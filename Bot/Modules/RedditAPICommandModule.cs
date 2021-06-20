@@ -2,7 +2,6 @@
 using Bot.Models;
 using Bot.Services.RedditAPIService;
 using Bot.Services.StringProcService;
-using Discord;
 using Discord.Commands;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
