@@ -4,6 +4,9 @@ using Discord;
 
 namespace Bot.Common.EmbedBuilders
 {
+    /// <summary>
+    /// Builds embed from a RedditPostModel with configurable information.
+    /// </summary>
     public class RedditPostEmbedBuilder : EmbedBuilder
     {
         private protected IStringProcService _stringProcessor;
