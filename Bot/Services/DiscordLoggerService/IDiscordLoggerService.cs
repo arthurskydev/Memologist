@@ -4,7 +4,10 @@ namespace Bot.Services.DiscordLoggerService
 {
     public enum LoggingEvent
     {
-        UserKick
+        UserKick,
+        UserBan,
+        UserUnban,
+        MessagePurge
     }
 
     public interface IDiscordLoggerService

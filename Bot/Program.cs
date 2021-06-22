@@ -29,7 +29,6 @@ namespace Bot
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                         .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
-                        .AddEnvironmentVariables()
                         .Build();
                 })
                 .ConfigureLogging(context =>
@@ -59,6 +58,7 @@ namespace Bot
                     services
                         .AddHostedService<CommandExecutedEventHandler>()
                         .AddHostedService<MessageRecievedEventHandler>()
+                        .AddHostedService<SelfEventHandler>()
                         .AddTransient<Utilities>()
                         .AddTransient<IDiscordLoggerService, DiscordLoggerService>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()

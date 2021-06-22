@@ -68,13 +68,12 @@ namespace Bot.Services.EventHandlers
 
             _logger.LogDebug($"Message was recognized as a command: {message.Content}");
 
-            if (_utilities.IsAllCaps(message.Content))
+            if (_utilities.IsAllCaps(message.Content.Substring(_configuration["Prefix"].Length - 1)))
             {
                 await message.ReplyAsync(_stringProcessor["whyallcaps"]);
             }
 
             var context = new SocketCommandContext(_client, message);
-
             await _commandService.ExecuteAsync(context, argPos, _provider);
         }
     }

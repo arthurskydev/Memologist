@@ -63,8 +63,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var builder = new RedditPostEmbedBuilder(post, _stringProcessor, true, true);
-            var embed = builder.Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringProcessor, true, true).Build();
 
             await ReplyAsync(embed: embed);
         }
@@ -92,8 +91,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var builder = new RedditPostEmbedBuilder(post, _stringProcessor);
-            var embed = builder.Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringProcessor).Build();
 
             await ReplyAsync(embed: embed);
         }
@@ -121,8 +119,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var builder = new RedditPostEmbedBuilder(post, _stringProcessor);
-            var embed = builder.Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringProcessor).Build();
 
             await ReplyAsync(embed: embed);
         }

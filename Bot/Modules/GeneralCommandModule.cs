@@ -31,15 +31,16 @@ namespace Bot.Modules
             await Context.Channel.TriggerTypingAsync();
             user = user ?? Context.User as SocketGuildUser;
 
-            var builder = new DefaultEmbedBuilder()
+            var embed = new DefaultEmbedBuilder()
                 .WithTitle($"{_stringProcessor["whois"]} {user.Username}#{user.Discriminator}?")
                 .WithThumbnailUrl(user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl())
                 .AddField($"{_stringProcessor["userid"]}", user.Id)
                 .AddField($"{_stringProcessor["username"]}", user.Username, true)
                 .AddField($"{_stringProcessor["descriminator"]}", user.Discriminator, true)
                 .AddField($"{_stringProcessor["createdat"]}", user.CreatedAt.ToString("dd/MM/yyyy"))
-                .AddField($"{_stringProcessor["joinedat"]}", user.JoinedAt.Value.ToString("dd/MM/yyyy"));
-            var embed = builder.Build();
+                .AddField($"{_stringProcessor["joinedat"]}", user.JoinedAt.Value.ToString("dd/MM/yyyy"))
+                .Build();
+
             await this.ReplyAsync(null, false, embed);
         }
     }

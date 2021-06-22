@@ -43,10 +43,9 @@ namespace Bot.Services.EventHandlers
                 return;
             }
 
-            var builder = new ErrorEmbedBuilder(_stringProcessor);
-            builder
-                .WithDescription(result.ErrorReason);
-            var embed = builder.Build();
+            var embed = new ErrorEmbedBuilder(_stringProcessor)
+                .WithDescription(result.ErrorReason)
+                .Build();
 
             await commandContext.Channel.SendMessageAsync(embed: embed);
 
