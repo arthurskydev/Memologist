@@ -10,9 +10,9 @@ namespace Bot.Modules
     /// </summary>
     public class MiscCommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcService _stringProcService;
+        private protected IStringProcessor _stringProcService;
 
-        public MiscCommandModule(IStringProcService stringProcService)
+        public MiscCommandModule(IStringProcessor stringProcService)
         {
             _stringProcService = stringProcService;
         }

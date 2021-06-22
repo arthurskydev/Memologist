@@ -3,11 +3,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Bot.Services.DiscordLoggerService
 {
-    class DiscordLoggerService : IDiscordLoggerService
+    class DiscordLogger : IDiscordLogger
     {
         private readonly ILogger _logger;
 
-        public DiscordLoggerService(ILogger<DiscordLoggerService> logger)
+        public DiscordLogger(ILogger<DiscordLogger> logger)
         {
             _logger = logger;
         }

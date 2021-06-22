@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Bot.Services.EventHandlers
 {
-    internal class MessageRecievedEventHandler : InitializedService
+    internal class MiscEventHandler : InitializedService
     {
         private readonly IServiceProvider _provider;
         private readonly DiscordSocketClient _client;
@@ -20,16 +20,16 @@ namespace Bot.Services.EventHandlers
         private readonly IConfiguration _configuration;
         private readonly Utilities _utilities;
         private readonly ILogger _logger;
-        private readonly IStringProcService _stringProcessor;
+        private readonly IStringProcessor _stringProcessor;
 
-        public MessageRecievedEventHandler(
+        public MiscEventHandler(
             IServiceProvider provider,
             DiscordSocketClient client,
             CommandService commandService,
             IConfiguration configuration,
             Utilities utilities,
-            ILogger<MessageRecievedEventHandler> logger,
-            IStringProcService stringProcessor)
+            ILogger<MiscEventHandler> logger,
+            IStringProcessor stringProcessor)
         {
             _provider = provider;
             _client = client;

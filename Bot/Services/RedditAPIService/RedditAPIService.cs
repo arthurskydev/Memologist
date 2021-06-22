@@ -10,9 +10,9 @@ namespace Bot.Services.RedditAPIService
 {
     public class RedditAPIService : IRedditAPIService
     {
-        private readonly IStringProcService _stringProcessor;
+        private readonly IStringProcessor _stringProcessor;
 
-        public RedditAPIService(IStringProcService stringProcessor)
+        public RedditAPIService(IStringProcessor stringProcessor)
         {
             _stringProcessor = stringProcessor;
         }

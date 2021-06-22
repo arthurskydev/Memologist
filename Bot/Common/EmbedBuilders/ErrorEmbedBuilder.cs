@@ -8,9 +8,9 @@ namespace Bot.Common.EmbedBuilders
     /// </summary>
     public class ErrorEmbedBuilder : EmbedBuilder
     {
-        private readonly IStringProcService _stringProcessor;
+        private readonly IStringProcessor _stringProcessor;
 
-        public ErrorEmbedBuilder(IStringProcService stringProcService)
+        public ErrorEmbedBuilder(IStringProcessor stringProcService)
         {
             _stringProcessor = stringProcService;
             WithColor(Discord.Color.Red)

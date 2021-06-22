@@ -10,7 +10,7 @@ namespace Bot.Services.DiscordLoggerService
         MessagePurge
     }
 
-    public interface IDiscordLoggerService
+    public interface IDiscordLogger
     {
         /// <summary>
         /// If guild has discord logging set up: loggs to the logging channel.

@@ -10,11 +10,11 @@ namespace Bot.Common.EmbedBuilders
     /// </summary>
     public class RedditPostEmbedBuilder : EmbedBuilder
     {
-        private protected IStringProcService _stringProcessor;
+        private protected IStringProcessor _stringProcessor;
 
         public RedditPostEmbedBuilder(
             RedditPostModel post,
-            IStringProcService stringProcessor,
+            IStringProcessor stringProcessor,
             bool hasContext = false,
             bool hasRating = false)
         {

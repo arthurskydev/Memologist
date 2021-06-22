@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace Bot.Services.StringProcService
 {
-    public class StringProcService : IStringProcService
+    public class StringProcessor : IStringProcessor
     {
         public string this[string key] 
         {
@@ -25,9 +25,9 @@ namespace Bot.Services.StringProcService
 
         private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-        public StringProcService(
+        public StringProcessor(
             IConfiguration configuration,
-            ILogger<StringProcService> logger)
+            ILogger<StringProcessor> logger)
         {
             _configuration = configuration;
             _logger = logger;

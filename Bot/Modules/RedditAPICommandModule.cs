@@ -12,7 +12,7 @@ namespace Bot.Modules
 {
     public class RedditAPICommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcService _stringProcessor;
+        private protected IStringProcessor _stringProcessor;
         private protected IConfiguration _configuration;
         private protected ILogger _logger;
         private protected IRedditAPIService _redditAPI;
@@ -21,7 +21,7 @@ namespace Bot.Modules
         private string subreddit;
 
         public RedditAPICommandModule(
-            IStringProcService stringProcessor,
+            IStringProcessor stringProcessor,
             IConfiguration configuration,
             ILogger<RedditAPICommandModule> logger,
             IRedditAPIService redditAPI)

@@ -12,11 +12,11 @@ namespace Bot.Modules
     /// </summary>
     public class GeneralCommandModule : ModuleBase<SocketCommandContext>
     {
-        private readonly IStringProcService _stringProcessor;
+        private readonly IStringProcessor _stringProcessor;
         private readonly IConfiguration _config;
 
         public GeneralCommandModule(
-            IStringProcService stringProcService,
+            IStringProcessor stringProcService,
             IConfiguration config)
         {
             _stringProcessor = stringProcService;

@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace Bot.Services.EventHandlers
 {
-    internal class CommandExecutedEventHandler : InitializedService
+    internal class CommandHandler : InitializedService
     {
         private readonly ILogger _logger;
-        private readonly IStringProcService _stringProcessor;
+        private readonly IStringProcessor _stringProcessor;
         private readonly CommandService _commandService;
         private readonly IServiceProvider _serviceProvider;
 
-        public CommandExecutedEventHandler(
-            ILogger<CommandExecutedEventHandler> logger, 
-            IStringProcService stringProcService,
+        public CommandHandler(
+            ILogger<CommandHandler> logger, 
+            IStringProcessor stringProcService,
             CommandService commandService,
             IServiceProvider serviceProvider)
         {

@@ -13,14 +13,14 @@ namespace Bot.Modules
 {
     public class ModerationCommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcService _stringProcessor;
+        private protected IStringProcessor _stringProcessor;
         private protected ILogger _logger;
-        private protected IDiscordLoggerService _discordLogger;
+        private protected IDiscordLogger _discordLogger;
 
         public ModerationCommandModule(
-            IStringProcService stringProc,
+            IStringProcessor stringProc,
             ILogger<ModerationCommandModule> logger,
-            IDiscordLoggerService discordLogger)
+            IDiscordLogger discordLogger)
         {
             _stringProcessor = stringProc;
             _logger = logger;

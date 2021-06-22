@@ -56,13 +56,13 @@ namespace Bot
                 .ConfigureServices((context, services) =>
                 {
                     services
-                        .AddHostedService<CommandExecutedEventHandler>()
-                        .AddHostedService<MessageRecievedEventHandler>()
+                        .AddHostedService<CommandHandler>()
+                        .AddHostedService<MiscEventHandler>()
                         .AddHostedService<SelfEventHandler>()
                         .AddTransient<Utilities>()
-                        .AddTransient<IDiscordLoggerService, DiscordLoggerService>()
+                        .AddTransient<IDiscordLogger, DiscordLogger>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()
-                        .AddSingleton<IStringProcService, StringProcService>();
+                        .AddSingleton<IStringProcessor, StringProcessor>();
                 })
                 .UseConsoleLifetime();
 
