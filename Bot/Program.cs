@@ -36,7 +36,7 @@ namespace Bot
                     context.AddConfiguration();
                     context.AddConsole();
                 })
-                .ConfigureDiscordHost<DiscordSocketClient>((context, config) =>
+                .ConfigureDiscordHost((context, config) =>
                 {
                     config.SocketConfig = new DiscordSocketConfig
                     {

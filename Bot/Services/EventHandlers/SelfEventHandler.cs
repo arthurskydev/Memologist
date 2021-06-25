@@ -1,24 +1,20 @@
 ﻿using Bot.Common.EmbedBuilders;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Bot.Services.EventHandlers
 {
-    class SelfEventHandler : InitializedService
+    class SelfEventHandler : DiscordClientService
     {
-        private readonly DiscordSocketClient _client;
+        public SelfEventHandler(DiscordSocketClient client, ILogger<SelfEventHandler> logger) : base(client, logger) { }
 
-        public SelfEventHandler(DiscordSocketClient client)
+        protected override Task ExecuteAsync(CancellationToken cancellationToken)
         {
-            _client = client;
-        }
-
-        public override Task InitializeAsync(CancellationToken cancellationToken)
-        {
-            _client.JoinedGuild += OnJoinAsync;
+            Client.JoinedGuild += OnJoinAsync;
             return Task.CompletedTask;
         }
 

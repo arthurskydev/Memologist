@@ -3,6 +3,7 @@ using Bot.Services.StringProcService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
+using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Reflection;
@@ -11,26 +12,25 @@ using System.Threading.Tasks;
 
 namespace Bot.Services.EventHandlers
 {
-    internal class CommandHandler : InitializedService
+    internal class CommandHandler : DiscordClientService
     {
-        private readonly ILogger _logger;
         private readonly IStringProcessor _stringProcessor;
         private readonly CommandService _commandService;
         private readonly IServiceProvider _serviceProvider;
 
         public CommandHandler(
+            DiscordSocketClient client,
             ILogger<CommandHandler> logger, 
             IStringProcessor stringProcService,
             CommandService commandService,
-            IServiceProvider serviceProvider)
+            IServiceProvider serviceProvider) : base(client, logger)
         {
-            _logger = logger;
             _stringProcessor = stringProcService;
             _commandService = commandService;
             _serviceProvider = serviceProvider;
         }
 
-        public override async Task InitializeAsync(CancellationToken cancellationToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await _commandService.AddModulesAsync(Assembly.GetEntryAssembly(), _serviceProvider);
             _commandService.CommandExecuted += CommandExecuted;
@@ -53,7 +53,7 @@ namespace Bot.Services.EventHandlers
             {
                 return;
             }
-            _logger.LogWarning($"Exeption while executing command: {result.ErrorReason}");
+            Logger.LogWarning($"Exeption while executing command: {result.ErrorReason}");
         }
     }
 }

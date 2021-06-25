@@ -12,43 +12,39 @@ using System.Threading.Tasks;
 
 namespace Bot.Services.EventHandlers
 {
-    internal class MiscEventHandler : InitializedService
+    internal class MiscEventHandler : DiscordClientService
     {
         private readonly IServiceProvider _provider;
-        private readonly DiscordSocketClient _client;
         private readonly CommandService _commandService;
         private readonly IConfiguration _configuration;
         private readonly Utilities _utilities;
-        private readonly ILogger _logger;
         private readonly IStringProcessor _stringProcessor;
 
         public MiscEventHandler(
-            IServiceProvider provider,
             DiscordSocketClient client,
+            ILogger<MiscEventHandler> logger,
+            IServiceProvider provider,
             CommandService commandService,
             IConfiguration configuration,
             Utilities utilities,
-            ILogger<MiscEventHandler> logger,
-            IStringProcessor stringProcessor)
+            IStringProcessor stringProcessor) : base(client, logger)
         {
             _provider = provider;
-            _client = client;
             _commandService = commandService;
             _configuration = configuration;
             _utilities = utilities;
-            _logger = logger;
             _stringProcessor = stringProcessor;
         }
 
-        public override Task InitializeAsync(CancellationToken cancellationToken)
+        protected override Task ExecuteAsync(CancellationToken cancellationToken)
         {
-            _client.MessageReceived += OnMessageRecieved;
+            Client.MessageReceived += OnMessageRecieved;
             return Task.CompletedTask;
         }
 
         private async Task OnMessageRecieved(SocketMessage socketMessage)
         {
-            _logger.LogDebug($"Message Recieved: {socketMessage.Id} by {socketMessage.Author.Username}.");
+            Logger.LogDebug($"Message Recieved: {socketMessage.Id} by {socketMessage.Author.Username}.");
             if (!(socketMessage is SocketUserMessage message))
             {
                 return;
@@ -61,19 +57,19 @@ namespace Bot.Services.EventHandlers
 
             int argPos = 0;
             if (!message.HasStringPrefix(_configuration["Prefix"], ref argPos) &&
-                !message.HasMentionPrefix(_client.CurrentUser, ref argPos))
+                !message.HasMentionPrefix(Client.CurrentUser, ref argPos))
             {
                 return;
             }
 
-            _logger.LogDebug($"Message was recognized as a command: {message.Content}");
+            Logger.LogDebug($"Message was recognized as a command: {message.Content}");
 
             if (_utilities.IsAllCaps(message.Content.Substring(_configuration["Prefix"].Length - 1)))
             {
                 await message.ReplyAsync(_stringProcessor["whyallcaps"]);
             }
 
-            var context = new SocketCommandContext(_client, message);
+            var context = new SocketCommandContext(Client, message);
             await _commandService.ExecuteAsync(context, argPos, _provider);
         }
     }
