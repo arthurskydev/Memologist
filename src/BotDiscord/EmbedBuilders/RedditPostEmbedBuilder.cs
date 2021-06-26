@@ -3,7 +3,7 @@ using BotCommon.StringService;
 using Discord;
 using System;
 
-namespace BotDiscord.Common.EmbedBuilders
+namespace BotDiscord.EmbedBuilders.EmbedBuilders
 {
     /// <summary>
     /// Builds embed from a RedditPostModel with configurable information.
