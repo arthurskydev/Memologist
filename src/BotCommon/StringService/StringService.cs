@@ -6,11 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace BotCommon.StringService
+namespace Bot.Common.StringService
 {
     public class StringService : IStringService
     {
-        public string this[string key] 
+        public string this[string key]
         {
             get
             {

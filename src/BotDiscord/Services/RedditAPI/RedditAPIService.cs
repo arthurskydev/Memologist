@@ -1,12 +1,12 @@
-﻿using BotModels.Reddit;
-using BotCommon.StringService;
+﻿using Bot.Common.StringService;
+using Bot.Models.RedditModels;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace BotDiscord.Services.RedditAPI
+namespace Bot.Client.Services.RedditAPI
 {
     public class RedditAPIService : IRedditAPIService
     {
@@ -21,7 +21,7 @@ namespace BotDiscord.Services.RedditAPI
         {
             if (number > 100)
             {
-                throw new Exception(message: _strinService["numbertoohighreddit"]) ;
+                throw new Exception(message: _strinService["numbertoohighreddit"]);
             }
 
             var client = new HttpClient();
@@ -36,7 +36,7 @@ namespace BotDiscord.Services.RedditAPI
             }
             else
             {
-                 redditListing = JsonConvert.DeserializeObject<RedditListingModel>(result);
+                redditListing = JsonConvert.DeserializeObject<RedditListingModel>(result);
             }
 
             if (redditListing == null || redditListing?.kind != "Listing" || number > redditListing.data?.children.Count)

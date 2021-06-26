@@ -1,9 +1,8 @@
-﻿using BotModels.Reddit;
-using BotCommon.StringService;
+﻿using Bot.Common.StringService;
+using Bot.Models.RedditModels;
 using Discord;
-using System;
 
-namespace BotDiscord.EmbedBuilders
+namespace Bot.Client.EmbedBuilders
 {
     /// <summary>
     /// Builds embed from a RedditPostModel with configurable information.
@@ -35,7 +34,7 @@ namespace BotDiscord.EmbedBuilders
                 string title = post.data.title;
                 if (title.Length > 250)
                 {
-                    title = $"{title.Substring(0,249)}...";
+                    title = $"{title.Substring(0, 249)}...";
                 }
                 WithTitle(title);
                 WithUrl($"https://reddit.com{post.data.permalink}");

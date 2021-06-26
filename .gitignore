@@ -6,6 +6,8 @@
 # Testing version of appconfig
 appsettings.Development.json
 
+nuget.exe
+
 # User-specific files
 *.rsuser
 *.suo

@@ -1,6 +1,6 @@
 ﻿using Discord.Commands;
 
-namespace BotDiscord.Services.DiscordLoggerService
+namespace Bot.Client.Services.DiscordLoggerService
 {
     public enum LoggingEvent
     {

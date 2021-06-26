@@ -1,7 +1,7 @@
 ﻿using Discord.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace BotDiscord.Services.DiscordLoggerService
+namespace Bot.Client.Services.DiscordLoggerService
 {
     class DiscordLogger : IDiscordLogger
     {

@@ -1,7 +1,7 @@
-﻿using BotModels.Reddit;
+﻿using Bot.Models.RedditModels;
 using System.Threading.Tasks;
 
-namespace BotDiscord.Services.RedditAPI
+namespace Bot.Client.Services.RedditAPI
 {
     public enum ResultMethod
     {

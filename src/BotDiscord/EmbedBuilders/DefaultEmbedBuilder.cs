@@ -1,6 +1,6 @@
 ﻿using Discord;
 
-namespace BotDiscord.EmbedBuilders
+namespace Bot.Client.EmbedBuilders
 {
     /// <summary>
     /// Builds a basic blue embed with timestamp.

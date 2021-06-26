@@ -1,11 +1,11 @@
-﻿namespace BotCommon.Helpers
+﻿namespace Bot.Client.Helpers
 {
     /// <summary>
     /// Utilities that multiple commands might use.
     /// </summary>
     public class Utilities
     {
-        public bool IsAllCaps(string input)
+        public static bool IsAllCaps(string input)
         {
             foreach (char character in input)
             {

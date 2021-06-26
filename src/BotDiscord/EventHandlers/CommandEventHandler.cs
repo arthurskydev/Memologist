@@ -1,5 +1,5 @@
-﻿using BotDiscord.EmbedBuilders;
-using BotCommon.StringService;
+﻿using Bot.Client.EmbedBuilders;
+using Bot.Common.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
@@ -10,17 +10,17 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BotDiscord.EventHandlers
+namespace Bot.Client.EventHandlers
 {
-    internal class CommandHandler : DiscordClientService
+    internal class CommandEventHandler : DiscordClientService
     {
         private readonly IStringService _stringService;
         private readonly CommandService _commandService;
         private readonly IServiceProvider _serviceProvider;
 
-        public CommandHandler(
+        public CommandEventHandler(
             DiscordSocketClient client,
-            ILogger<CommandHandler> logger, 
+            ILogger<CommandEventHandler> logger,
             IStringService stringService,
             CommandService commandService,
             IServiceProvider serviceProvider) : base(client, logger)
