@@ -1,6 +1,5 @@
-﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.Helpers;
-using Bot.Common.StringService;
+﻿using BotCommon.StringService;
+using BotCommon.Helpers;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
@@ -11,7 +10,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Bot.Client.EventHandlers
+namespace BotDiscord.EventHandlers
 {
     internal class MiscEventHandler : DiscordClientService
     {
@@ -40,7 +39,6 @@ namespace Bot.Client.EventHandlers
         protected override Task ExecuteAsync(CancellationToken cancellationToken)
         {
             Client.MessageReceived += OnMessageRecieved;
-            Client.JoinedGuild += OnJoinAsync;
             return Task.CompletedTask;
         }
 
@@ -73,16 +71,6 @@ namespace Bot.Client.EventHandlers
 
             var context = new SocketCommandContext(Client, message);
             await _commandService.ExecuteAsync(context, argPos, _provider);
-        }
-        private async Task OnJoinAsync(SocketGuild socketGuild)
-        {
-            var embed = new DefaultEmbedBuilder()
-                .WithTitle($"I am here.")
-                .WithDescription($"I am Memologist. To see a list of commands do \"give help\". To learn more about me do \"give m\".")
-                .WithFooter(footer => { footer.WithText($"Thank you for your invitation! ❤️"); })
-                .Build();
-
-            await socketGuild.DefaultChannel.SendMessageAsync(embed: embed);
         }
     }
 }

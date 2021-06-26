@@ -1,6 +1,6 @@
-﻿using Bot.Client.EmbedBuilders;
-using Bot.Client.Services.DiscordLoggerService;
-using Bot.Common.StringService;
+﻿using BotDiscord.EmbedBuilders;
+using BotDiscord.Services.DiscordLoggerService;
+using BotCommon.StringService;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Bot.Client.Modules
+namespace BotDiscord.Modules
 {
     public class ModerationCommandModule : ModuleBase<SocketCommandContext>
     {
@@ -66,7 +66,7 @@ namespace Bot.Client.Modules
             }
 
             await user.KickAsync(reason);
-            _discordLogger.DiscordCommandLog(Context, LoggingEvent.UserKick,
+            _discordLogger.DiscordCommandLog(Context, LoggingEvent.UserKick, 
                 $"{Context.User.Id} ({Context.User.Username}#{Context.User.Discriminator}) " +
                 $"kicked {user.Id} ({user.Username}#{user.Discriminator}) for {reason}");
 

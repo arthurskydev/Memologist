@@ -1,14 +1,14 @@
-﻿using Bot.Client.EmbedBuilders;
-using Bot.Client.Services.RedditAPI;
-using Bot.Common.StringService;
-using Bot.Models.RedditModels;
+﻿using BotDiscord.EmbedBuilders;
+using BotModels.Reddit;
+using BotDiscord.Services.RedditAPI;
+using BotCommon.StringService;
 using Discord.Commands;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Bot.Client.Modules
+namespace BotDiscord.Modules
 {
     public class RedditAPICommandModule : ModuleBase<SocketCommandContext>
     {
@@ -111,8 +111,8 @@ namespace Bot.Client.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringService["nothingwasfoundreddit"] +
-                    "\n" +
+                await ReplyAsync(_stringService["nothingwasfoundreddit"] + 
+                    "\n" + 
                     ex.Message);
 
                 _logger.LogTrace(ex.Message);

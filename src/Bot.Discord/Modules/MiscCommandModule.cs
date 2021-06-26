@@ -1,9 +1,9 @@
-﻿using Bot.Common.StringService;
+﻿using System.Threading.Tasks;
+using BotCommon.StringService;
 using Discord;
 using Discord.Commands;
-using System.Threading.Tasks;
 
-namespace Bot.Client.Modules
+namespace BotDiscord.Modules
 {
     /// <summary>
     /// Commands that aren't useful, memes or only for testing purposes.

@@ -1,7 +1,7 @@
-﻿using Bot.Common.StringService;
+﻿using BotCommon.StringService;
 using Discord;
 
-namespace Bot.Client.EmbedBuilders
+namespace BotDiscord.EmbedBuilders
 {
     /// <summary>
     /// Builds a red embed with the error title.

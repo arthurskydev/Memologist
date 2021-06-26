@@ -1,4 +1,4 @@
-﻿namespace Bot.Common.StringService
+﻿namespace BotCommon.StringService
 {
     public interface IStringService
     {

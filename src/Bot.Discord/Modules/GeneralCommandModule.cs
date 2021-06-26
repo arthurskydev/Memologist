@@ -1,11 +1,11 @@
-﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.StringService;
+﻿using BotDiscord.EmbedBuilders;
+using BotCommon.StringService;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
-namespace Bot.Client.Modules
+namespace BotDiscord.Modules
 {
     /// <summary>
     /// General useful commands that everyone can use.

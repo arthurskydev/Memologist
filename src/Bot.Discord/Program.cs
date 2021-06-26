@@ -1,13 +1,10 @@
-﻿using Bot.Client.EventHandlers;
-using Bot.Client.Services.DiscordLoggerService;
-using Bot.Client.Services.RedditAPI;
-using Bot.Client.Helpers;
-using Bot.Common.StringService;
-using Bot.DataAccess;
+﻿using BotCommon.Helpers;
+using BotDiscord.EventHandlers;
+using BotDiscord.Services.RedditAPI;
+using BotCommon.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,8 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
 using System.IO;
 using System.Threading.Tasks;
+using BotDiscord.Services.DiscordLoggerService;
 
-namespace Bot.Client
+namespace BotDiscord
 {
     internal class Program
     {
@@ -25,7 +23,7 @@ namespace Bot.Client
             var builder = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((context, config) =>
                 {
-
+                    
                     config.Sources.Clear();
                     config
                         .SetBasePath(Directory.GetCurrentDirectory())
@@ -33,10 +31,10 @@ namespace Bot.Client
                         .AddJsonFile($"Settings/appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
                         .Build();
                 })
-                .ConfigureLogging(config =>
+                .ConfigureLogging(context =>
                 {
-                    config.AddConfiguration();
-                    config.AddConsole();
+                    context.AddConfiguration();
+                    context.AddConsole();
                 })
                 .ConfigureDiscordHost((context, config) =>
                 {
@@ -49,30 +47,22 @@ namespace Bot.Client
 
                     config.Token = context.Configuration["Token"];
                 })
-                .ConfigureServices((context, services) =>
-                {
-                    var connectionString = context.Configuration.GetConnectionString("Default");
-                    services.AddDbContext<GuildContext>((options) =>
-                    {
-                        options
-                        .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-                            .EnableSensitiveDataLogging()
-                            .EnableDetailedErrors();
-                    });
-
-                    services
-                        .AddHostedService<CommandEventHandler>()
-                        .AddHostedService<MiscEventHandler>()
-                        .AddTransient<Utilities>()
-                        .AddTransient<IDiscordLogger, DiscordLogger>()
-                        .AddTransient<IRedditAPIService, RedditAPIService>()
-                        .AddSingleton<IStringService, StringService>();
-                })
                 .UseCommandService((context, config) =>
                 {
                     config.CaseSensitiveCommands = false;
                     config.LogLevel = LogSeverity.Debug;
                     config.DefaultRunMode = Discord.Commands.RunMode.Async;
+                })
+                .ConfigureServices((context, services) =>
+                {
+                    services
+                        .AddHostedService<CommandHandler>()
+                        .AddHostedService<MiscEventHandler>()
+                        .AddHostedService<SelfEventHandler>()
+                        .AddTransient<Utilities>()
+                        .AddTransient<IDiscordLogger, DiscordLogger>()
+                        .AddTransient<IRedditAPIService, RedditAPIService>()
+                        .AddSingleton<IStringService, StringService>();
                 })
                 .UseConsoleLifetime();
 
