@@ -1,4 +1,4 @@
-﻿namespace Bot.Models
+﻿namespace Models.Reddit
 {
     public class RedditPostModel
     {

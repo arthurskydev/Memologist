@@ -1,4 +1,4 @@
-﻿using Bot.Models;
+﻿using Models.Reddit;
 using Common.StringService;
 using Discord;
 using System;

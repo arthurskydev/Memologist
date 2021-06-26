@@ -1,5 +1,5 @@
 ﻿using Bot.Common.EmbedBuilders;
-using Bot.Models;
+using Models.Reddit;
 using Bot.Services.RedditAPI;
 using Common.StringService;
 using Discord.Commands;

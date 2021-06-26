@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Bot.Models
+namespace Models.Reddit
 {
     public class RedditListingModel
     {

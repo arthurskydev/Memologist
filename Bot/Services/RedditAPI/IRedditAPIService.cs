@@ -1,4 +1,4 @@
-﻿using Bot.Models;
+﻿using Models.Reddit;
 using System.Threading.Tasks;
 
 namespace Bot.Services.RedditAPI
