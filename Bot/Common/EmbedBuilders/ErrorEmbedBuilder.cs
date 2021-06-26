@@ -1,4 +1,4 @@
-﻿using Bot.Services.StringProcService;
+﻿using Bot.Services.String;
 using Discord;
 
 namespace Bot.Common.EmbedBuilders

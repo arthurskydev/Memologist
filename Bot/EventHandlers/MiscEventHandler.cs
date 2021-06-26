@@ -1,5 +1,5 @@
 ﻿using Bot.Common;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
@@ -10,7 +10,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Bot.Services.EventHandlers
+namespace Bot.EventHandlers
 {
     internal class MiscEventHandler : DiscordClientService
     {

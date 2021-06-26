@@ -1,5 +1,5 @@
 ﻿using Bot.Models;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Discord;
 using System;
 

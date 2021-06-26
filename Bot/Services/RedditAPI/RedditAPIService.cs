@@ -1,12 +1,12 @@
 ﻿using Bot.Models;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Bot.Services.RedditAPIService
+namespace Bot.Services.RedditAPI
 {
     public class RedditAPIService : IRedditAPIService
     {

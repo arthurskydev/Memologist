@@ -1,5 +1,5 @@
 ﻿using Bot.Common.EmbedBuilders;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;

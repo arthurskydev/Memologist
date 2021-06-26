@@ -1,12 +1,11 @@
 ﻿using Bot.Common.EmbedBuilders;
 using Bot.Services.DiscordLoggerService;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Bot.Modules

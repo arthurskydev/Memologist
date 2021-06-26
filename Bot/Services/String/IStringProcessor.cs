@@ -1,4 +1,4 @@
-﻿namespace Bot.Services.StringProcService
+﻿namespace Bot.Services.String
 {
     public interface IStringProcessor
     {

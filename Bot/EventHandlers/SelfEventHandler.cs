@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Bot.Services.EventHandlers
+namespace Bot.EventHandlers
 {
     class SelfEventHandler : DiscordClientService
     {

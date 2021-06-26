@@ -1,7 +1,7 @@
 ﻿using Bot.Common;
-using Bot.Services.EventHandlers;
-using Bot.Services.RedditAPIService;
-using Bot.Services.StringProcService;
+using Bot.EventHandlers;
+using Bot.Services.RedditAPI;
+using Bot.Services.String;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;

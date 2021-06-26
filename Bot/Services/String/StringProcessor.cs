@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace Bot.Services.StringProcService
+namespace Bot.Services.String
 {
     public class StringProcessor : IStringProcessor
     {
@@ -57,7 +57,7 @@ namespace Bot.Services.StringProcService
         {
             try
             {
-                if (String.IsNullOrEmpty(filePath))
+                if (string.IsNullOrEmpty(filePath))
                 {
                     filePath = $"{Directory.GetCurrentDirectory()}/stringset.json";
                 }

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Bot.Services.StringProcService;
+using Bot.Services.String;
 using Discord;
 using Discord.Commands;
 
