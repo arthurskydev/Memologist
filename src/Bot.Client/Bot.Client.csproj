@@ -39,9 +39,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\BotCommon\Bot.Common.csproj" />
-	  <ProjectReference Include="..\BotModels\Bot.Models.csproj" />
-	  <ProjectReference Include="..\BotDataAccess\Bot.DataAccess.csproj" />
+	  <ProjectReference Include="..\Bot.Common\Bot.Common.csproj" />
+	  <ProjectReference Include="..\Bot.Models\Bot.Models.csproj" />
+	  <ProjectReference Include="..\Bot.DataAccess\Bot.DataAccess.csproj" />
 	</ItemGroup>
 	
 	<ProjectExtensions>

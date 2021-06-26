@@ -1,5 +1,5 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.Helpers;
+using Bot.Client.Helpers;
 using Bot.Common.StringService;
 using Discord;
 using Discord.Addons.Hosting;
@@ -18,7 +18,6 @@ namespace Bot.Client.EventHandlers
         private readonly IServiceProvider _provider;
         private readonly CommandService _commandService;
         private readonly IConfiguration _configuration;
-        private readonly Utilities _utilities;
         private readonly IStringService _stringService;
 
         public MiscEventHandler(
@@ -27,13 +26,11 @@ namespace Bot.Client.EventHandlers
             IServiceProvider provider,
             CommandService commandService,
             IConfiguration configuration,
-            Utilities utilities,
             IStringService stringService) : base(client, logger)
         {
             _provider = provider;
             _commandService = commandService;
             _configuration = configuration;
-            _utilities = utilities;
             _stringService = stringService;
         }
 
@@ -47,7 +44,7 @@ namespace Bot.Client.EventHandlers
         private async Task OnMessageRecieved(SocketMessage socketMessage)
         {
             Logger.LogDebug($"Message Recieved: {socketMessage.Id} by {socketMessage.Author.Username}.");
-            if (!(socketMessage is SocketUserMessage message))
+            if (socketMessage is not SocketUserMessage message)
             {
                 return;
             }
@@ -66,7 +63,7 @@ namespace Bot.Client.EventHandlers
 
             Logger.LogDebug($"Message was recognized as a command: {message.Content}");
 
-            if (_utilities.IsAllCaps(message.Content.Substring(_configuration["Prefix"].Length - 1)))
+            if (Utilities.IsAllCaps(message.Content[(_configuration["Prefix"].Length - 1)..]))
             {
                 await message.ReplyAsync(_stringService["whyallcaps"]);
             }
