@@ -10,15 +10,12 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Bot/bin/Debug/net5.0/Bot.dll",
+            "program": "${workspaceFolder}/BotDiscord/bin/Debug/net5.0/BotDiscord.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Bot",
+            "cwd": "${workspaceFolder}/BotDiscord",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console":"externalTerminal",
-            "stopAtEntry": false,
-            "env": {
-                "DOTNET_ENVIRONMENT": "Development"
-            }
+            "console": "internalConsole",
+            "stopAtEntry": false
         },
         {
             "name": ".NET Core Attach",
