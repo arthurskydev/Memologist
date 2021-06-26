@@ -1,6 +1,6 @@
 ﻿using Bot.Common.EmbedBuilders;
 using Bot.Services.DiscordLoggerService;
-using Bot.Services.String;
+using Common.StringService;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
@@ -12,16 +12,16 @@ namespace Bot.Modules
 {
     public class ModerationCommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcessor _stringProcessor;
+        private protected IStringService _stringService;
         private protected ILogger _logger;
         private protected IDiscordLogger _discordLogger;
 
         public ModerationCommandModule(
-            IStringProcessor stringProc,
+            IStringService stringService,
             ILogger<ModerationCommandModule> logger,
             IDiscordLogger discordLogger)
         {
-            _stringProcessor = stringProc;
+            _stringService = stringService;
             _logger = logger;
             _discordLogger = discordLogger;
         }
@@ -41,9 +41,9 @@ namespace Bot.Modules
             await Context.Channel.TriggerTypingAsync();
 
             var embed = new DefaultEmbedBuilder()
-                .WithDescription($"{number} {_stringProcessor["moderationpurgereply"]} {Context.User.Mention}." +
+                .WithDescription($"{number} {_stringService["moderationpurgereply"]} {Context.User.Mention}." +
                 "\n" +
-                $"*{_stringProcessor["willdeleteshortly"]}*")
+                $"*{_stringService["willdeleteshortly"]}*")
                 .Build();
 
             var reply = await ReplyAsync(embed: embed);
@@ -62,7 +62,7 @@ namespace Bot.Modules
         {
             if (string.IsNullOrEmpty(reason))
             {
-                throw new Exception(message: _stringProcessor["moderationnoreason"]);
+                throw new Exception(message: _stringService["moderationnoreason"]);
             }
 
             await user.KickAsync(reason);
@@ -72,8 +72,8 @@ namespace Bot.Modules
 
             await Context.Channel.TriggerTypingAsync();
             var embed = new DefaultEmbedBuilder()
-                .WithTitle($"{Context.User.Username}#{Context.User.Discriminator} {_stringProcessor["moderationkicked"]}")
-                .AddField($"{user.Username}#{user.Discriminator} {_stringProcessor["moderationuserwaskicked"]}", $"***{reason}***")
+                .WithTitle($"{Context.User.Username}#{Context.User.Discriminator} {_stringService["moderationkicked"]}")
+                .AddField($"{user.Username}#{user.Discriminator} {_stringService["moderationuserwaskicked"]}", $"***{reason}***")
                 .Build();
 
             await ReplyAsync(embed: embed);
@@ -98,8 +98,8 @@ namespace Bot.Modules
             await Context.Channel.TriggerTypingAsync();
 
             var embed = new DefaultEmbedBuilder()
-                .WithTitle($"{Context.User.Username}#{Context.User.Discriminator} {_stringProcessor["moderationbanned"]}")
-                .AddField($"{user.Username}#{user.Discriminator} {_stringProcessor["moderationuserwasbanned"]}", $"***{reason}***")
+                .WithTitle($"{Context.User.Username}#{Context.User.Discriminator} {_stringService["moderationbanned"]}")
+                .AddField($"{user.Username}#{user.Discriminator} {_stringService["moderationuserwasbanned"]}", $"***{reason}***")
                 .Build();
 
             await ReplyAsync(embed: embed);
@@ -117,12 +117,12 @@ namespace Bot.Modules
 
             if (userId == 0)
             {
-                throw new Exception(message: _stringProcessor["moderationuseridwrong"]);
+                throw new Exception(message: _stringService["moderationuseridwrong"]);
             }
 
             if (await Context.Guild.GetBanAsync(userId) == null)
             {
-                throw new Exception(message: _stringProcessor["moderationusernotbanned"]);
+                throw new Exception(message: _stringService["moderationusernotbanned"]);
             }
 
             await Context.Guild.RemoveBanAsync(userId);
@@ -131,7 +131,7 @@ namespace Bot.Modules
                 $"unbanned {userId})");
 
             var embed = new DefaultEmbedBuilder()
-                .WithDescription($"{Context.User.Username}#{Context.User.Discriminator} {_stringProcessor["moderationunbanned"]} {userId}.")
+                .WithDescription($"{Context.User.Username}#{Context.User.Discriminator} {_stringService["moderationunbanned"]} {userId}.")
                 .Build();
 
             await ReplyAsync(embed: embed);

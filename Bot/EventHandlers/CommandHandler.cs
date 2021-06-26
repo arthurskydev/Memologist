@@ -1,5 +1,6 @@
-﻿using Bot.Common.EmbedBuilders;
-using Bot.Services.String;
+﻿using System.Security.AccessControl;
+using Bot.Common.EmbedBuilders;
+using Common.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
@@ -14,18 +15,18 @@ namespace Bot.EventHandlers
 {
     internal class CommandHandler : DiscordClientService
     {
-        private readonly IStringProcessor _stringProcessor;
+        private readonly IStringService _stringService;
         private readonly CommandService _commandService;
         private readonly IServiceProvider _serviceProvider;
 
         public CommandHandler(
             DiscordSocketClient client,
             ILogger<CommandHandler> logger, 
-            IStringProcessor stringProcService,
+            IStringService stringService,
             CommandService commandService,
             IServiceProvider serviceProvider) : base(client, logger)
         {
-            _stringProcessor = stringProcService;
+            _stringService = stringService;
             _commandService = commandService;
             _serviceProvider = serviceProvider;
         }
@@ -43,7 +44,7 @@ namespace Bot.EventHandlers
                 return;
             }
 
-            var embed = new ErrorEmbedBuilder(_stringProcessor)
+            var embed = new ErrorEmbedBuilder(_stringService)
                 .WithDescription(result.ErrorReason)
                 .Build();
 

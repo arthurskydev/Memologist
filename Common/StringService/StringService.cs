@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace Bot.Services.String
+namespace Common.StringService
 {
-    public class StringProcessor : IStringProcessor
+    public class StringService : IStringService
     {
         public string this[string key] 
         {
@@ -25,9 +25,9 @@ namespace Bot.Services.String
 
         private Dictionary<string, string> _strings = new Dictionary<string, string>();
 
-        public StringProcessor(
+        public StringService(
             IConfiguration configuration,
-            ILogger<StringProcessor> logger)
+            ILogger<StringService> logger)
         {
             _configuration = configuration;
             _logger = logger;

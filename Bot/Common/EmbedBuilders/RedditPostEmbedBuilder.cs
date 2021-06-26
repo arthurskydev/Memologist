@@ -1,5 +1,5 @@
 ﻿using Bot.Models;
-using Bot.Services.String;
+using Common.StringService;
 using Discord;
 using System;
 
@@ -10,15 +10,15 @@ namespace Bot.Common.EmbedBuilders
     /// </summary>
     public class RedditPostEmbedBuilder : EmbedBuilder
     {
-        private protected IStringProcessor _stringProcessor;
+        private protected IStringService _stringService;
 
         public RedditPostEmbedBuilder(
             RedditPostModel post,
-            IStringProcessor stringProcessor,
+            IStringService stringService,
             bool hasContext = false,
             bool hasRating = false)
         {
-            _stringProcessor = stringProcessor;
+            _stringService = stringService;
 
 
             if (post.data.post_hint == "image")
@@ -27,7 +27,7 @@ namespace Bot.Common.EmbedBuilders
             }
             else
             {
-                WithDescription(_stringProcessor["redditnotanimage"]);
+                WithDescription(_stringService["redditnotanimage"]);
             }
 
             if (post.data.post_hint != "image" || hasContext)
@@ -45,11 +45,11 @@ namespace Bot.Common.EmbedBuilders
             {
                 if (post.data.hide_score)
                 {
-                    WithFooter($"{_stringProcessor["speechbubbleemoji"]} {post.data.num_comments}  {_stringProcessor["scorehidden"]}");
+                    WithFooter($"{_stringService["speechbubbleemoji"]} {post.data.num_comments}  {_stringService["scorehidden"]}");
                 }
                 else
                 {
-                    WithFooter($"{_stringProcessor["speechbubbleemoji"]} {post.data.num_comments}  {_stringProcessor["arrowupemoji"]} {post.data.score}");
+                    WithFooter($"{_stringService["speechbubbleemoji"]} {post.data.num_comments}  {_stringService["arrowupemoji"]} {post.data.score}");
                 }
             }
         }

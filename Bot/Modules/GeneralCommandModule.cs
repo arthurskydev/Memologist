@@ -1,5 +1,5 @@
 ﻿using Bot.Common.EmbedBuilders;
-using Bot.Services.String;
+using Common.StringService;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
@@ -12,14 +12,14 @@ namespace Bot.Modules
     /// </summary>
     public class GeneralCommandModule : ModuleBase<SocketCommandContext>
     {
-        private readonly IStringProcessor _stringProcessor;
+        private readonly IStringService _stringService;
         private readonly IConfiguration _config;
 
         public GeneralCommandModule(
-            IStringProcessor stringProcService,
+            IStringService stringService,
             IConfiguration config)
         {
-            _stringProcessor = stringProcService;
+            _stringService = stringService;
             _config = config;
         }
 
@@ -32,13 +32,13 @@ namespace Bot.Modules
             user = user ?? Context.User as SocketGuildUser;
 
             var embed = new DefaultEmbedBuilder()
-                .WithTitle($"{_stringProcessor["whois"]} {user.Username}#{user.Discriminator}?")
+                .WithTitle($"{_stringService["whois"]} {user.Username}#{user.Discriminator}?")
                 .WithThumbnailUrl(user.GetAvatarUrl() ?? user.GetDefaultAvatarUrl())
-                .AddField($"{_stringProcessor["userid"]}", user.Id)
-                .AddField($"{_stringProcessor["username"]}", user.Username, true)
-                .AddField($"{_stringProcessor["descriminator"]}", user.Discriminator, true)
-                .AddField($"{_stringProcessor["createdat"]}", user.CreatedAt.ToString("dd/MM/yyyy"))
-                .AddField($"{_stringProcessor["joinedat"]}", user.JoinedAt.Value.ToString("dd/MM/yyyy"))
+                .AddField($"{_stringService["userid"]}", user.Id)
+                .AddField($"{_stringService["username"]}", user.Username, true)
+                .AddField($"{_stringService["descriminator"]}", user.Discriminator, true)
+                .AddField($"{_stringService["createdat"]}", user.CreatedAt.ToString("dd/MM/yyyy"))
+                .AddField($"{_stringService["joinedat"]}", user.JoinedAt.Value.ToString("dd/MM/yyyy"))
                 .Build();
 
             await this.ReplyAsync(null, false, embed);

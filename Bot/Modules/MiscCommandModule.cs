@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Bot.Services.String;
+using Common.StringService;
 using Discord;
 using Discord.Commands;
 
@@ -10,11 +10,11 @@ namespace Bot.Modules
     /// </summary>
     public class MiscCommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcessor _stringProcService;
+        private protected IStringService _stringService;
 
-        public MiscCommandModule(IStringProcessor stringProcService)
+        public MiscCommandModule(IStringService stringProcService)
         {
-            _stringProcService = stringProcService;
+            _stringService = stringProcService;
         }
 
         [Command("ping")]
@@ -24,8 +24,8 @@ namespace Bot.Modules
         public async Task PingAsync()
         {
             await Context.Channel.TriggerTypingAsync();
-            await ReplyAsync(_stringProcService["pinganswer"]);
-            await Context.User.SendMessageAsync(_stringProcService["pingdmanswer"]);
+            await ReplyAsync(_stringService["pinganswer"]);
+            await Context.User.SendMessageAsync(_stringService["pingdmanswer"]);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Bot.Services.String;
+﻿using Common.StringService;
 using Discord;
 
 namespace Bot.Common.EmbedBuilders
@@ -8,13 +8,13 @@ namespace Bot.Common.EmbedBuilders
     /// </summary>
     public class ErrorEmbedBuilder : EmbedBuilder
     {
-        private readonly IStringProcessor _stringProcessor;
+        private readonly IStringService _stringService;
 
-        public ErrorEmbedBuilder(IStringProcessor stringProcService)
+        public ErrorEmbedBuilder(IStringService stringService)
         {
-            _stringProcessor = stringProcService;
+            _stringService = stringService;
             WithColor(Discord.Color.Red)
-               .WithTitle(_stringProcessor["commanderror"]);
+               .WithTitle(_stringService["commanderror"]);
         }
     }
 }

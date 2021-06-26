@@ -1,5 +1,5 @@
 ﻿using Bot.Models;
-using Bot.Services.String;
+using Common.StringService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -10,18 +10,18 @@ namespace Bot.Services.RedditAPI
 {
     public class RedditAPIService : IRedditAPIService
     {
-        private readonly IStringProcessor _stringProcessor;
+        private readonly IStringService _strinService;
 
-        public RedditAPIService(IStringProcessor stringProcessor)
+        public RedditAPIService(IStringService stringService)
         {
-            _stringProcessor = stringProcessor;
+            _strinService = stringService;
         }
 
         public async Task<RedditPostModel> GetRedditPostAsync(string subReddit, ResultMethod method, int number, TopOf topOf)
         {
             if (number > 100)
             {
-                throw new Exception(message: _stringProcessor["numbertoohighreddit"]) ;
+                throw new Exception(message: _strinService["numbertoohighreddit"]) ;
             }
 
             var client = new HttpClient();
@@ -41,7 +41,7 @@ namespace Bot.Services.RedditAPI
 
             if (redditListing == null || redditListing?.kind != "Listing" || number > redditListing.data?.children.Count)
             {
-                throw new Exception(message: _stringProcessor["errorcllingapi"]);
+                throw new Exception(message: _strinService["errorcllingapi"]);
             }
             else
             {

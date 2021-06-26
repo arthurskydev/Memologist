@@ -1,7 +1,7 @@
 ﻿using Bot.Common.EmbedBuilders;
 using Bot.Models;
 using Bot.Services.RedditAPI;
-using Bot.Services.String;
+using Common.StringService;
 using Discord.Commands;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,7 +12,7 @@ namespace Bot.Modules
 {
     public class RedditAPICommandModule : ModuleBase<SocketCommandContext>
     {
-        private protected IStringProcessor _stringProcessor;
+        private protected IStringService _stringService;
         private protected IConfiguration _configuration;
         private protected ILogger _logger;
         private protected IRedditAPIService _redditAPI;
@@ -21,12 +21,12 @@ namespace Bot.Modules
         private string subreddit;
 
         public RedditAPICommandModule(
-            IStringProcessor stringProcessor,
+            IStringService stringService,
             IConfiguration configuration,
             ILogger<RedditAPICommandModule> logger,
             IRedditAPIService redditAPI)
         {
-            _stringProcessor = stringProcessor;
+            _stringService = stringService;
             _configuration = configuration;
             _logger = logger;
             _redditAPI = redditAPI;
@@ -55,7 +55,7 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] +
+                await ReplyAsync(_stringService["nothingwasfoundreddit"] +
                     "\n" +
                     ex.Message);
 
@@ -63,7 +63,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var embed = new RedditPostEmbedBuilder(post, _stringProcessor, true, true).Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringService, true, true).Build();
 
             await ReplyAsync(embed: embed);
         }
@@ -83,7 +83,7 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] +
+                await ReplyAsync(_stringService["nothingwasfoundreddit"] +
                     "\n" +
                     ex.Message);
 
@@ -91,7 +91,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var embed = new RedditPostEmbedBuilder(post, _stringProcessor).Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringService).Build();
 
             await ReplyAsync(embed: embed);
         }
@@ -111,7 +111,7 @@ namespace Bot.Modules
             }
             catch (Exception ex)
             {
-                await ReplyAsync(_stringProcessor["nothingwasfoundreddit"] + 
+                await ReplyAsync(_stringService["nothingwasfoundreddit"] + 
                     "\n" + 
                     ex.Message);
 
@@ -119,7 +119,7 @@ namespace Bot.Modules
                 return;
             }
 
-            var embed = new RedditPostEmbedBuilder(post, _stringProcessor).Build();
+            var embed = new RedditPostEmbedBuilder(post, _stringService).Build();
 
             await ReplyAsync(embed: embed);
         }

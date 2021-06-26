@@ -1,5 +1,5 @@
-﻿using Bot.Common;
-using Bot.Services.String;
+﻿using Common.StringService;
+using Common.Helpers;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
@@ -18,7 +18,7 @@ namespace Bot.EventHandlers
         private readonly CommandService _commandService;
         private readonly IConfiguration _configuration;
         private readonly Utilities _utilities;
-        private readonly IStringProcessor _stringProcessor;
+        private readonly IStringService _stringService;
 
         public MiscEventHandler(
             DiscordSocketClient client,
@@ -27,13 +27,13 @@ namespace Bot.EventHandlers
             CommandService commandService,
             IConfiguration configuration,
             Utilities utilities,
-            IStringProcessor stringProcessor) : base(client, logger)
+            IStringService stringService) : base(client, logger)
         {
             _provider = provider;
             _commandService = commandService;
             _configuration = configuration;
             _utilities = utilities;
-            _stringProcessor = stringProcessor;
+            _stringService = stringService;
         }
 
         protected override Task ExecuteAsync(CancellationToken cancellationToken)
@@ -66,7 +66,7 @@ namespace Bot.EventHandlers
 
             if (_utilities.IsAllCaps(message.Content.Substring(_configuration["Prefix"].Length - 1)))
             {
-                await message.ReplyAsync(_stringProcessor["whyallcaps"]);
+                await message.ReplyAsync(_stringService["whyallcaps"]);
             }
 
             var context = new SocketCommandContext(Client, message);

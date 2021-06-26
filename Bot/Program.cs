@@ -1,7 +1,7 @@
-﻿using Bot.Common;
+﻿using Common.Helpers;
 using Bot.EventHandlers;
 using Bot.Services.RedditAPI;
-using Bot.Services.String;
+using Common.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;
@@ -62,7 +62,7 @@ namespace Bot
                         .AddTransient<Utilities>()
                         .AddTransient<IDiscordLogger, DiscordLogger>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()
-                        .AddSingleton<IStringProcessor, StringProcessor>();
+                        .AddSingleton<IStringService, StringService>();
                 })
                 .UseConsoleLifetime();
 

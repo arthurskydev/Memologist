@@ -1,4 +1,4 @@
-﻿namespace Bot.Common
+﻿namespace Common.Helpers
 {
     /// <summary>
     /// Utilities that multiple commands might use.
