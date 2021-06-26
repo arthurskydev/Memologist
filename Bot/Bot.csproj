@@ -12,13 +12,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="appsettings.Development.json">
+		<None Update="JSON\appsettings.Development.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="appsettings.json">
+		<None Update="JSON\appsettings.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="stringset.json">
+		<None Update="JSON\stringset.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>

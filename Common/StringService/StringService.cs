@@ -59,7 +59,7 @@ namespace Common.StringService
             {
                 if (string.IsNullOrEmpty(filePath))
                 {
-                    filePath = $"{Directory.GetCurrentDirectory()}/stringset.json";
+                    filePath = $"{Directory.GetCurrentDirectory()}/JSON/stringset.json";
                 }
                 string jsonString = File.ReadAllText(filePath);
                 _strings = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);

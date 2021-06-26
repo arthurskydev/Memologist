@@ -27,8 +27,8 @@ namespace Bot
                     config.Sources.Clear();
                     config
                         .SetBasePath(Directory.GetCurrentDirectory())
-                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
+                        .AddJsonFile("JSON/appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile($"JSON/appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
                         .Build();
                 })
                 .ConfigureLogging(context =>
