@@ -27,8 +27,8 @@ namespace BotDiscord
                     config.Sources.Clear();
                     config
                         .SetBasePath(Directory.GetCurrentDirectory())
-                        .AddJsonFile("JSON/appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile($"JSON/appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
+                        .AddJsonFile("Settings/appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile($"Settings/appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true)
                         .Build();
                 })
                 .ConfigureLogging(context =>

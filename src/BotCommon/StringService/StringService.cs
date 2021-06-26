@@ -59,7 +59,7 @@ namespace BotCommon.StringService
             {
                 if (string.IsNullOrEmpty(filePath))
                 {
-                    filePath = $"{Directory.GetCurrentDirectory()}/JSON/stringset.json";
+                    filePath = $"{Directory.GetCurrentDirectory()}/Settings/stringset.json";
                 }
                 string jsonString = File.ReadAllText(filePath);
                 _strings = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
