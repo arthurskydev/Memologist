@@ -1,4 +1,4 @@
-﻿using BotDiscord.Common.EmbedBuilders;
+﻿using BotDiscord.EmbedBuilders;
 using BotDiscord.Services.DiscordLoggerService;
 using BotCommon.StringService;
 using Discord;

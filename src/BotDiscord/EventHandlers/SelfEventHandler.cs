@@ -1,4 +1,4 @@
-﻿using BotDiscord.Common.EmbedBuilders;
+﻿using BotDiscord.EmbedBuilders;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;

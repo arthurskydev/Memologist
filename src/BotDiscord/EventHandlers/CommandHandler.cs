@@ -1,4 +1,4 @@
-﻿using BotDiscord.Common.EmbedBuilders;
+﻿using BotDiscord.EmbedBuilders;
 using BotCommon.StringService;
 using Discord;
 using Discord.Addons.Hosting;

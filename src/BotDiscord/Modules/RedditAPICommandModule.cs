@@ -1,4 +1,4 @@
-﻿using BotDiscord.Common.EmbedBuilders;
+﻿using BotDiscord.EmbedBuilders;
 using BotModels.Reddit;
 using BotDiscord.Services.RedditAPI;
 using BotCommon.StringService;
