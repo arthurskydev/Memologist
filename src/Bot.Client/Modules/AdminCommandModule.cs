@@ -37,7 +37,7 @@ namespace Bot.Client.Modules
             }
             if (endsWithBlank)
             {
-                prefix = prefix + " ";
+                prefix += " ";
             }
             await _dataAccess.SetPrefixAsync(Context.Guild.Id, prefix);
             await ReplyAsync($"{_stringService["adminprefixchanged"]} **{prefix}**.");

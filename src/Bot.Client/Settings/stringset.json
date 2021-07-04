@@ -18,7 +18,7 @@
   "errorcllingapi": "Error occured while calling API.",
   "embederror": "Error while building embed.",
   "moderationpurgereply": "messages were deleted by:",
-  "willdeleteshortly": "This message will dissapear shortly.",
+  "willdeleteshortly": "This message will disapear shortly.",
   "moderationkicked": "kicked a user.",
   "moderationuserwaskicked": "was removed from the server for:",
   "moderationbanned": "banned a user.",

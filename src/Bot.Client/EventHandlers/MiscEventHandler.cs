@@ -1,7 +1,6 @@
 ﻿using Bot.Client.EmbedBuilders;
 using Bot.Client.Helpers;
 using Bot.Common.Contract;
-using Bot.DataAccess;
 using Bot.DataAccess.Contract;
 using Discord;
 using Discord.Addons.Hosting;
@@ -43,6 +42,7 @@ namespace Bot.Client.EventHandlers
         {
             Client.MessageReceived += OnMessageRecieved;
             Client.JoinedGuild += OnJoinAsync;
+            Client.UserJoined += OnUserJoinAsync;
             return Task.CompletedTask;
         }
 
@@ -87,6 +87,11 @@ namespace Bot.Client.EventHandlers
                 .Build();
 
             await socketGuild.DefaultChannel.SendMessageAsync(embed: embed);
+        }
+
+        private Task OnUserJoinAsync(SocketGuildUser socketGuildUser)
+        {
+            return Task.CompletedTask;
         }
     }
 }

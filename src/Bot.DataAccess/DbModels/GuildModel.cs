@@ -9,5 +9,6 @@ namespace Bot.DataAccess.DbModels
         public ulong GuildId { get; set; }
         [MaxLength(25)]
         public string Prefix { get; set; }
+        public ulong GreetingsChannelId { get; set; }
     }
 }
