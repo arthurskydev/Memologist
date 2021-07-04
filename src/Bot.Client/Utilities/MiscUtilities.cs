@@ -1,9 +1,9 @@
-﻿namespace Bot.Client.Helpers
+﻿namespace Bot.Client.Utilities
 {
     /// <summary>
     /// Utilities that multiple commands might use.
     /// </summary>
-    public class Utilities
+    public class MiscUtilities
     {
         public static bool IsAllCaps(string input)
         {

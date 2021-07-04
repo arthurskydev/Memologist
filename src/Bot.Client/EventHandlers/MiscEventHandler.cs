@@ -1,5 +1,5 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Client.Helpers;
+using Bot.Client.Utilities;
 using Bot.Common.Contract;
 using Bot.DataAccess.Contract;
 using Discord;
@@ -70,7 +70,7 @@ namespace Bot.Client.EventHandlers
 
             Logger.LogDebug($"Message was recognized as a command: {message.Content}");
 
-            if (Utilities.IsAllCaps(message.Content[(_configuration["Prefix"].Length - 1)..]))
+            if (MiscUtilities.IsAllCaps(message.Content[(_configuration["Prefix"].Length - 1)..]))
             {
                 await message.ReplyAsync(_stringService["whyallcaps"]);
             }

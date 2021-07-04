@@ -1,5 +1,5 @@
 ﻿using Bot.Client.EventHandlers;
-using Bot.Client.Helpers;
+using Bot.Client.Utilities;
 using Bot.Client.Services.DiscordLoggerService;
 using Bot.Client.Services.RedditAPI;
 using Bot.Common;
@@ -81,7 +81,7 @@ namespace Bot.Client
                         .AddHostedService<CommandHandler>()
                         .AddHostedService<MiscEventHandler>()
                         .AddHostedService<GuildConntectedHandler>()
-                        .AddTransient<Utilities>()
+                        .AddTransient<MiscUtilities>()
                         .AddTransient<IDiscordLogger, DiscordLogger>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()
                         .AddSingleton<IDataAccessLayer, DataAccessLayer>()
