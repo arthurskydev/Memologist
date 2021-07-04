@@ -1,8 +1,7 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.Contract;
+using Bot.Common.StringService;
 using Discord.Commands;
 using Discord.WebSocket;
-using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
 namespace Bot.Client.Modules

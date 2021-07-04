@@ -1,16 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 
-namespace BotCommon.StringService
+namespace Bot.Common.StringService
 {
     public class StringService : IStringService
     {
-        public string this[string key] 
+        public string this[string key]
         {
             get
             {
@@ -23,7 +23,7 @@ namespace BotCommon.StringService
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
 
-        private Dictionary<string, string> _strings = new Dictionary<string, string>();
+        private Dictionary<string, string> _strings = new();
 
         public StringService(
             IConfiguration configuration,
@@ -37,20 +37,13 @@ namespace BotCommon.StringService
 
         private string GetString(string key)
         {
-            try
-            {
-                var result = _strings.FirstOrDefault(x => x.Key == key);
-                if (!string.IsNullOrEmpty(result.Value))
-                {
-                    return result.Value;
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogWarning(ex.Message);
-            }
 
-            return "Error code: 0";
+            var result = _strings.FirstOrDefault(x => x.Key == key);
+            if (!string.IsNullOrEmpty(result.Value))
+            {
+                return result.Value;
+            }
+            throw new Exception(message: "No string value found");
         }
 
         private void ChangeStringSet(string filePath)
@@ -62,7 +55,7 @@ namespace BotCommon.StringService
                     filePath = $"{Directory.GetCurrentDirectory()}/Settings/stringset.json";
                 }
                 string jsonString = File.ReadAllText(filePath);
-                _strings = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+                _strings = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString);
 
             }
             catch

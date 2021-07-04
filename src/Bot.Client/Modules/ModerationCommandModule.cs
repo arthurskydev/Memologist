@@ -1,6 +1,6 @@
 ﻿using Bot.Client.EmbedBuilders;
 using Bot.Client.Services.DiscordLoggerService;
-using Bot.Common.Contract;
+using Bot.Common.StringService;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;

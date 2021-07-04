@@ -41,9 +41,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Bot.Common\Bot.Common.csproj" />
-	  <ProjectReference Include="..\Bot.Common.Contract\Bot.Common.Contract.csproj" />
 	  <ProjectReference Include="..\Bot.DataAccess\Bot.DataAccess.csproj" />
-	  <ProjectReference Include="..\Bot.DataAccess.Contract\Bot.DataAccess.Contract.csproj" />
 	</ItemGroup>
 	
 	<ProjectExtensions>

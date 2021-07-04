@@ -1,8 +1,7 @@
 ﻿using Bot.Client.Models.RedditModels;
-using Bot.Common.Contract;
+using Bot.Common.StringService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Text.Json.Serialization;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;

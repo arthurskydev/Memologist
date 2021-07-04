@@ -1,7 +1,7 @@
 ﻿using Bot.Client.EmbedBuilders;
 using Bot.Client.Utilities;
-using Bot.Common.Contract;
-using Bot.DataAccess.Contract;
+using Bot.Common.StringService;
+using Bot.DataAccess;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;

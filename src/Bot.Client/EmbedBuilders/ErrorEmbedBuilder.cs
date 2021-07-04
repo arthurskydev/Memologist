@@ -1,4 +1,4 @@
-﻿using Bot.Common.Contract;
+﻿using Bot.Common.StringService;
 using Discord;
 
 namespace Bot.Client.EmbedBuilders

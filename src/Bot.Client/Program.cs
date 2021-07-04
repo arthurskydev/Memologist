@@ -1,11 +1,9 @@
 ﻿using Bot.Client.EventHandlers;
-using Bot.Client.Utilities;
 using Bot.Client.Services.DiscordLoggerService;
 using Bot.Client.Services.RedditAPI;
-using Bot.Common;
-using Bot.Common.Contract;
+using Bot.Client.Utilities;
+using Bot.Common.StringService;
 using Bot.DataAccess;
-using Bot.DataAccess.Contract;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;

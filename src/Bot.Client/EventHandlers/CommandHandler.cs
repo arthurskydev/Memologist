@@ -1,12 +1,11 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.Contract;
+using Bot.Common.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;

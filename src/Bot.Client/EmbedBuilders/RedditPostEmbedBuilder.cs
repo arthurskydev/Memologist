@@ -1,5 +1,5 @@
-﻿using Bot.Common.Contract;
-using Bot.Client.Models.RedditModels;
+﻿using Bot.Client.Models.RedditModels;
+using Bot.Common.StringService;
 using Discord;
 
 namespace Bot.Client.EmbedBuilders

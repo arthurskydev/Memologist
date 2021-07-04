@@ -1,7 +1,7 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Client.Services.RedditAPI;
-using Bot.Common.Contract;
 using Bot.Client.Models.RedditModels;
+using Bot.Client.Services.RedditAPI;
+using Bot.Common.StringService;
 using Discord.Commands;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

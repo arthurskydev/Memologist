@@ -1,5 +1,4 @@
-﻿using Bot.DataAccess.Contract;
-using Bot.DataAccess.DbModels;
+﻿using Bot.DataAccess.DbModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;

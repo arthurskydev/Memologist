@@ -1,5 +1,5 @@
-﻿using Bot.Common.Contract;
-using Bot.DataAccess.Contract;
+﻿using Bot.Common.StringService;
+using Bot.DataAccess;
 using Discord;
 using Discord.Commands;
 using Microsoft.Extensions.Configuration;
