@@ -28,5 +28,5 @@
   "argumentmissing": "Argument is missing!",
   "moderationnoreason": "No reason was specified.",
   "moderationuseridwrong": "You have to specify the *Id* of the user. Enable developer options in your settings and right click the user to get the Id",
-  "adminprefixchanges": "The prefix was changed to:"
+  "adminprefixchanged": "The prefix was changed to:"
 }

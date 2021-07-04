@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace Bot.Client.Modules
 {
-    internal class RedditAPICommandModule : ModuleBase<SocketCommandContext>
+    /// <summary>
+    /// Can be used to communicate with the Discord API
+    /// </summary>
+    public class RedditAPICommandModule : ModuleBase<SocketCommandContext>
     {
         private protected IStringService _stringService;
         private protected IConfiguration _configuration;

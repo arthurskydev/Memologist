@@ -12,7 +12,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Bot.Common.Contract\Bot.Common.Contract.csproj" />
-		<ProjectReference Include="..\Bot.Common.Contract\Bot.Common.Contract.csproj" />
 	</ItemGroup>
 
 </Project>

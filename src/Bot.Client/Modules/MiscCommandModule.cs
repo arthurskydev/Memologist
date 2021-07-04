@@ -8,7 +8,7 @@ namespace Bot.Client.Modules
     /// <summary>
     /// Commands that aren't useful, memes or only for testing purposes.
     /// </summary>
-    internal class MiscCommandModule : ModuleBase<SocketCommandContext>
+    public class MiscCommandModule : ModuleBase<SocketCommandContext>
     {
         private protected IStringService _stringService;
 

@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bot.Client.Modules
 {
-    internal class AdminCommandModule : ModuleBase<SocketCommandContext>
+    /// <summary>
+    /// Commands that are useful for administration and not daily use.
+    /// </summary>
+    public class AdminCommandModule : ModuleBase<SocketCommandContext>
     {
         private readonly IDataAccessLayer _dataAccess;
         private readonly IStringService _stringService;
@@ -25,15 +28,19 @@ namespace Bot.Client.Modules
 
         [Command("prefix")]
         [RequireUserPermission(GuildPermission.Administrator)]
-        [Summary("Change the bot's prefix. Only valid for your server. Type \\reset as the argument to reset the prefix to the default.")]
-        public async Task PrefixAsync(string prefix)
+        [Summary("Change the bot's prefix. Only valid for your server. Type \\reset as the argument to reset the prefix to the default. If you want a blank at the end specify true as the second parameter.")]
+        public async Task PrefixAsync(string prefix, bool endsWithBlank = false)
         {
             if (prefix == "\\reset")
             {
                 prefix = _configuration["Prefix"];
             }
+            if (endsWithBlank)
+            {
+                prefix = prefix + " ";
+            }
             await _dataAccess.SetPrefixAsync(Context.Guild.Id, prefix);
-            await ReplyAsync(_stringService[$"**{_stringService["adminprefixchanged"]} {prefix}**"]);
+            await ReplyAsync($"{_stringService["adminprefixchanged"]} **{prefix}**.");
         }
     }
 }

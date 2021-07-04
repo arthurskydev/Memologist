@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace Bot.Client.Modules
 {
-    internal class ModerationCommandModule : ModuleBase<SocketCommandContext>
+    /// <summary>
+    /// Commands for Moderators.
+    /// </summary>
+    public class ModerationCommandModule : ModuleBase<SocketCommandContext>
     {
         private protected IStringService _stringService;
         private protected ILogger _logger;

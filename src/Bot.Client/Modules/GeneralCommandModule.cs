@@ -10,7 +10,7 @@ namespace Bot.Client.Modules
     /// <summary>
     /// General useful commands that everyone can use.
     /// </summary>
-    internal class GeneralCommandModule : ModuleBase<SocketCommandContext>
+    public class GeneralCommandModule : ModuleBase<SocketCommandContext>
     {
         private readonly IStringService _stringService;
 

@@ -60,12 +60,19 @@ namespace Bot.Client
 
                     config.Token = context.Configuration["Token"];
                 })
+                .UseCommandService((context, config) =>
+                {
+                    config.CaseSensitiveCommands = false;
+                    config.LogLevel = LogSeverity.Debug;
+                    config.DefaultRunMode = Discord.Commands.RunMode.Async;
+                })
                 .ConfigureServices((context, services) =>
                 {
                     var connectionString = context.Configuration.GetConnectionString("Default");
 
                     services
-                        .AddDbContext<BotContext>(options => {
+                        .AddDbContext<BotContext>(options =>
+                        {
                             options
                               .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
                               .EnableSensitiveDataLogging()
@@ -73,17 +80,12 @@ namespace Bot.Client
                         })
                         .AddHostedService<CommandHandler>()
                         .AddHostedService<MiscEventHandler>()
+                        .AddHostedService<GuildConntectedHandler>()
                         .AddTransient<Utilities>()
                         .AddTransient<IDiscordLogger, DiscordLogger>()
                         .AddTransient<IRedditAPIService, RedditAPIService>()
                         .AddSingleton<IDataAccessLayer, DataAccessLayer>()
                         .AddSingleton<IStringService, StringService>();
-                })
-                .UseCommandService((context, config) =>
-                {
-                    config.CaseSensitiveCommands = false;
-                    config.LogLevel = LogSeverity.Debug;
-                    config.DefaultRunMode = Discord.Commands.RunMode.Async;
                 })
                 .UseConsoleLifetime();
 
