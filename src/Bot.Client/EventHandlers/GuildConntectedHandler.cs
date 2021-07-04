@@ -1,4 +1,5 @@
 ﻿using Bot.DataAccess;
+using Bot.DataAccess.Contract;
 using Discord.Addons.Hosting;
 using Discord.WebSocket;
 using Microsoft.Extensions.Logging;

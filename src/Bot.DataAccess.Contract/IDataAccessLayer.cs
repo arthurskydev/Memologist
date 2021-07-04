@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Bot.DataAccess
+namespace Bot.DataAccess.Contract
 {
     public interface IDataAccessLayer
     {

@@ -1,5 +1,5 @@
 ﻿using Bot.Client.EmbedBuilders;
-using Bot.Common.StringService;
+using Bot.Common.Contract.StringService;
 using Discord;
 using Discord.Addons.Hosting;
 using Discord.Commands;

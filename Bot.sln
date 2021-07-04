@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Common", "src\Bot.Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.DataAccess", "src\Bot.DataAccess\Bot.DataAccess.csproj", "{3FBCEB73-B577-4CBE-95C5-543B6A0A2019}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.Common.Contract", "src\Bot.Common.Contract\Bot.Common.Contract.csproj", "{CF9697E7-CBF8-4C76-8075-03AD1C930479}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot.DataAccess.Contract", "src\Bot.DataAccess.Contract\Bot.DataAccess.Contract.csproj", "{F2D58F77-005F-4FA0-865B-E67529004BF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3FBCEB73-B577-4CBE-95C5-543B6A0A2019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FBCEB73-B577-4CBE-95C5-543B6A0A2019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FBCEB73-B577-4CBE-95C5-543B6A0A2019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9697E7-CBF8-4C76-8075-03AD1C930479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9697E7-CBF8-4C76-8075-03AD1C930479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9697E7-CBF8-4C76-8075-03AD1C930479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9697E7-CBF8-4C76-8075-03AD1C930479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D58F77-005F-4FA0-865B-E67529004BF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D58F77-005F-4FA0-865B-E67529004BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D58F77-005F-4FA0-865B-E67529004BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D58F77-005F-4FA0-865B-E67529004BF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

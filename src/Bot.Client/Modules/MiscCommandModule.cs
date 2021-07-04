@@ -1,4 +1,4 @@
-﻿using Bot.Common.StringService;
+﻿using Bot.Common.Contract.StringService;
 using Discord;
 using Discord.Commands;
 using System.Threading.Tasks;

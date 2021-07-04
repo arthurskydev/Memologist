@@ -1,5 +1,5 @@
 ﻿using Bot.Client.Models.RedditModels;
-using Bot.Common.StringService;
+using Bot.Common.Contract.StringService;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
